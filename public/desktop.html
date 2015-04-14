@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="myApp">
+<head>
+    <title>Web Editor</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="js/lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/lib/angular/angular.js"></script>
+    <script type="text/javascript" src="js/lib/angular-animate/angular-animate.js"></script>
+    <script type="text/javascript" src="js/lib/ngDraggable/ngDraggable.js"></script>
+    <script type="text/javascript" src="js/lib/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript" src="js/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="js/dist/web-editor.js"></script>
+</head>
+<body ng-controller="MainController">
+    <nav class="navbar navbar-inverse" style="margin-bottom:0px;z-index:999;">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Web Editor</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="btn-group btn-group-xs navbar-btns" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default navbar-btn" ng-click="edit()">Edit</button>
+                    <button type="button" class="btn btn-default navbar-btn" ng-click="Developer()">Developer</button>
+                    <button type="button" class="btn btn-default navbar-btn" ng-click="Preview()">Preview</button>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Share or save</a></li>
+                    <li><a href="#">Clear</a></li>
+                    <li class="dropdown" dropdown is-open="status.downloudOpen">
+                        <a href="#" class="dropdown-toggle" role="button"  dropdown-toggle>Download <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="editor-body">
+        <aside class="aside-left" ng-show="editShow">
+            <accordion close-others="oneAtATime">
+                <accordion-group is-open="status.oneOpen" is-disabled="status.oneDisabled">
+                    <accordion-heading>
+                        Gird system <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.oneOpen, 'glyphicon-chevron-right': !status.oneOpen}"></i>
+                    </accordion-heading>
+                    <div ng-repeat="item in girdItems" class="accordion-inside" ng-drag="true" ng-drag-data="item.content"><span class="left">{{item.name}}</span><span class="glyphicon glyphicon-fullscreen right" aria-hidden="true"></span></div>
+                </accordion-group>
+                <accordion-group is-open="status.twoOpen">
+                    <accordion-heading>
+                        Bace css <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.twoOpen, 'glyphicon-chevron-right': !status.twoOpen}"></i>
+                    </accordion-heading>
+                    <div ng-repeat="item in cssItems" class="accordion-inside" ng-drag="true"><span class="left">{{item}}</span><span class="glyphicon glyphicon-fullscreen right" aria-hidden="true"></span></div>
+                </accordion-group>
+                <accordion-group is-open="status.threeOpen">
+                    <accordion-heading>
+                        Bace module <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.threeOpen, 'glyphicon-chevron-right': !status.threeOpen}"></i>
+                    </accordion-heading>
+                    This is just some content to illustrate fancy headings.
+                </accordion-group>
+                <accordion-group is-open="status.fourOpen">
+                    <accordion-heading>
+                        Javascript <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.fourOpen, 'glyphicon-chevron-right': !status.fourOpen}"></i>
+                    </accordion-heading>
+                    This is just some content to illustrate fancy headings.
+                </accordion-group>
+            </accordion>    
+        </aside> 
+        <aside class="aside-right" ng-show="editShow">
+            <accordion>
+                <accordion-group is-open="status.fiveOpen">
+                    <accordion-heading>
+                        CSS settings <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.fiveOpen, 'glyphicon-chevron-right': !status.fiveOpen}"></i>
+                    </accordion-heading>
+                    <div>
+                        <div class="input-group">
+                            <div class="input-group-btn" dropdown is-open="status.paddingopen">
+                                <button type="button" class="btn btn-default dropdown-toggle"  dropdown-toggle>padding <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">padding-left</a></li>
+                                    <li><a href="#">padding-right</a></li>
+                                    <li><a href="#">padding-top</a></li>
+                                    <li><a href="#">padding-bottom</a></li>
+                                </ul>
+                            </div>
+                            <input type="text" class="form-control" aria-label="...">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">width</span>
+                            <input type="text" class="form-control" placeholder="width" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+        </aside> 
+        <div class="container-fluid" ng-class="{grown:grow}">
+            <div class="row">
+                <div class="col-md-6"  ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+                    <div class="inside" ng-repeat="obj in droppedObjects1" ng-bind-html-Unsafe="obj"></div></div>
+                <div class="col-md-6"><div class="inside"><h2>hello world!</h2></div></div>
+            </div>
+            <!--<ul class="draggable-objects">
+                <li  ng-repeat="obj in draggableObjects" >
+                    <div ng-drag="true" ng-drag-data="obj"> {{obj.name}} </div>
+                </li>
+            </ul>
+            <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+                <span class="title">Drop area #1</span>
+                <div ng-repeat="obj in droppedObjects1" ng-drag="true" ng-drag-data="obj" ng-drag-success="onDragSuccess1($data,$event)" ng-center-anchor="{{centerAnchor}}">
+                    {{obj.name}}
+                </div>
+            </div>
+        -->
+        </div>     
+    </div>
+</body>
+</html>
