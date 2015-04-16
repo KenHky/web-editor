@@ -66,12 +66,65 @@ app.controller "MainController",($scope)->
     inArray = (array, obj)->
         index = array.indexOf(obj)
 
+    $scope.models = 
+        selected: null,
+        templates: [
+            type: "gird12"
+            id: 1
+            columns: []
+        ,
+            type: "gird66"
+            id: 2
+            columns: [[], []]
+        ,
+            type: "gird84"
+            id: 2
+            columns: [[], []]
+        ,
+            type: "gird444"
+            id: 2
+            columns: [[], [], []]
+        ,
+            type: "gird264"
+            id: 2
+            columns: [[], [], []]
+        ]
+        dropzones:[
+            [
+                {
+                    "type": "gird12"
+                    "id": 1
+                    "columns": [
+                        [
+                            "type": "gird12"
+                            "id": "1"
+                            "columns": []
+                        ,
+                            "type": "gird12"
+                            "id": "3"
+                            "columns": []
+                        ]
+                    ] 
+                }
+            ]
+        ]
 
-###
-app.directive "cssDirective",()->
-    restrict: 'EA'
-    transclude: true
-    scope:
-      type:"="
-    templateUrl: '../directives/cssSetting.html'
-###
+    $scope.$watch 'models.dropzones', (model)->
+        $scope.modelAsJson = angular.toJson model, true
+    , true
+
+
+app.directive "gird12",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/gird12.html'
+
+app.directive "list",()->
+    replace: false
+    restrict: 'A'
+    transclude: false
+    scope: false
+    templateUrl: 'directives/list.html'
+

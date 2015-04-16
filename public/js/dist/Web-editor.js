@@ -1,4 +1,4 @@
-/*! Web-editor - v0.0.1 - 2015-04-14
+/*! Web-editor - v0.0.1 - 2015-04-16
 * Copyright (c) 2015 Ken; Licensed  */
 (function() {
   var app;
@@ -71,20 +71,80 @@
         return $scope.droppedObjects1.splice(index, 1);
       }
     };
-    return inArray = function(array, obj) {
+    inArray = function(array, obj) {
       var index;
       return index = array.indexOf(obj);
     };
+    $scope.models = {
+      selected: null,
+      templates: [
+        {
+          type: "gird12",
+          id: 1,
+          columns: []
+        }, {
+          type: "gird66",
+          id: 2,
+          columns: [[], []]
+        }, {
+          type: "gird84",
+          id: 2,
+          columns: [[], []]
+        }, {
+          type: "gird444",
+          id: 2,
+          columns: [[], [], []]
+        }, {
+          type: "gird264",
+          id: 2,
+          columns: [[], [], []]
+        }
+      ],
+      dropzones: [
+        [
+          {
+            "type": "gird12",
+            "id": 1,
+            "columns": [
+              [
+                {
+                  "type": "gird12",
+                  "id": "1",
+                  "columns": []
+                }, {
+                  "type": "gird12",
+                  "id": "3",
+                  "columns": []
+                }
+              ]
+            ]
+          }
+        ]
+      ]
+    };
+    return $scope.$watch('models.dropzones', function(model) {
+      return $scope.modelAsJson = angular.toJson(model, true);
+    }, true);
   });
 
+  app.directive("gird12", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/gird12.html'
+    };
+  });
 
-  /*
-  app.directive "cssDirective",()->
-      restrict: 'EA'
-      transclude: true
-      scope:
-        type:"="
-      templateUrl: '../directives/cssSetting.html'
-   */
+  app.directive("list", function() {
+    return {
+      replace: false,
+      restrict: 'A',
+      transclude: false,
+      scope: false,
+      templateUrl: 'directives/list.html'
+    };
+  });
 
 }).call(this);
