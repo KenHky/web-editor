@@ -100,7 +100,7 @@ app.controller "MainController",($scope)->
                             "id": "1"
                             "columns": []
                         ,
-                            "type": "gird12"
+                            "type": "gird264"
                             "id": "3"
                             "columns": []
                         ]
@@ -127,4 +127,32 @@ app.directive "list",()->
     transclude: false
     scope: false
     templateUrl: 'directives/list.html'
+
+app.directive "gird264",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/gird264.html'
+
+app.directive "gird444",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/gird444.html'
+
+app.directive "gird66",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/gird66.html'
+
+app.directive "gird84",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/gird84.html'
 
