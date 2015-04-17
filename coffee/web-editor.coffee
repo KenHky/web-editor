@@ -1,4 +1,4 @@
-app= angular.module 'myApp', ['ui.bootstrap','ngAnimate','ngDraggable','ngSanitize']
+app= angular.module 'myApp', ['ui.bootstrap','ngAnimate','ngDraggable','ngSanitize','dndLists']
 app.controller "MainController",($scope)->
     $scope.editShow= true
     $scope.edit= ()->

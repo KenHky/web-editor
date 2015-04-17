@@ -1,9 +1,9 @@
-/*! Web-editor - v0.0.1 - 2015-04-16
+/*! Web-editor - v0.0.1 - 2015-04-17
 * Copyright (c) 2015 Ken; Licensed  */
 (function() {
   var app;
 
-  app = angular.module('myApp', ['ui.bootstrap', 'ngAnimate', 'ngDraggable', 'ngSanitize']);
+  app = angular.module('myApp', ['ui.bootstrap', 'ngAnimate', 'ngDraggable', 'ngSanitize', 'dndLists']);
 
   app.controller("MainController", function($scope) {
     var inArray;
