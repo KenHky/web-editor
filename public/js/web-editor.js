@@ -18,24 +18,6 @@
       $scope.editShow = true;
       return $scope.grow = false;
     };
-    $scope.girdItems = [
-      {
-        name: "12",
-        content: "<div class='col-md-12'>212</div>"
-      }, {
-        name: "6 6",
-        content: "<div class='col-md-6'>212</div><div class='col-md-6'>212</div>"
-      }, {
-        name: "8 4",
-        content: "<div class='col-md-8'>212</div><div class='col-md-4'>212</div>"
-      }, {
-        name: "4 4 4",
-        content: "<div class='col-md-4'>212</div><div class='col-md-4'>212</div><div class='col-md-4'>212</div>"
-      }, {
-        name: "2 6 4",
-        content: "<div class='col-md-2'>212</div><div class='col-md-6'>212</div><div class='col-md-4'>212</div>"
-      }
-    ];
     $scope.cssItems = ['title'];
     $scope.cssSetting = ['padding'];
     $scope.addItem = function() {
@@ -75,50 +57,81 @@
     };
     $scope.models = {
       selected: null,
-      templates: [
+      girds: [
         {
           type: "gird12",
           id: 1,
-          columns: []
+          columns: [[]]
         }, {
           type: "gird66",
           id: 2,
           columns: [[], []]
         }, {
           type: "gird84",
-          id: 2,
+          id: 3,
           columns: [[], []]
         }, {
           type: "gird444",
-          id: 2,
+          id: 4,
           columns: [[], [], []]
         }, {
           type: "gird264",
-          id: 2,
+          id: 5,
           columns: [[], [], []]
         }
       ],
-      dropzones: [
-        [
-          {
-            "type": "gird12",
-            "id": 1,
-            "columns": [
-              [
-                {
-                  "type": "gird12",
-                  "id": "1",
-                  "columns": []
-                }, {
-                  "type": "gird264",
-                  "id": "3",
-                  "columns": []
-                }
-              ]
-            ]
-          }
-        ]
-      ]
+      css: [
+        {
+          type: "title",
+          id: 1
+        }, {
+          type: "paragraph",
+          id: 2
+        }, {
+          type: "OrderedList",
+          id: 3
+        }, {
+          type: "table",
+          id: 4
+        }, {
+          type: "form",
+          id: 5
+        }, {
+          type: "button",
+          id: 5
+        }, {
+          type: "image",
+          id: 5
+        }
+      ],
+      components: [
+        {
+          type: "ButtonGroups",
+          id: 1
+        }, {
+          type: "ButtonDropdowns",
+          id: 2
+        }, {
+          type: "Navs",
+          id: 3
+        }, {
+          type: "Breadcrumbs",
+          id: 4
+        }, {
+          type: "Pagination",
+          id: 5
+        }, {
+          type: "ProgressBars",
+          id: 6
+        }, {
+          type: "ListGroup",
+          id: 7
+        }, {
+          type: "ResponsiveEmbed",
+          id: 8
+        }
+      ],
+      dropzones: [[]]
     };
     return $scope.$watch('models.dropzones', function(model) {
       return $scope.modelAsJson = angular.toJson(model, true);
@@ -182,6 +195,156 @@
       restrict: 'A',
       scope: false,
       templateUrl: 'directives/gird84.html'
+    };
+  });
+
+  app.directive("title", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/title.html'
+    };
+  });
+
+  app.directive("paragraph", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/paragraph.html'
+    };
+  });
+
+  app.directive("OrderedList", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/OrderedList.html'
+    };
+  });
+
+  app.directive("table", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/table.html'
+    };
+  });
+
+  app.directive("form", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/form.html'
+    };
+  });
+
+  app.directive("button", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/button.html'
+    };
+  });
+
+  app.directive("image", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/image.html'
+    };
+  });
+
+  app.directive("ButtonGroups", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/ButtonGroups.html'
+    };
+  });
+
+  app.directive("ButtonDropdowns", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/ButtonDropdowns.html'
+    };
+  });
+
+  app.directive("Navs", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/Navs.html'
+    };
+  });
+
+  app.directive("Breadcrumbs", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/Breadcrumbs.html'
+    };
+  });
+
+  app.directive("Pagination", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/Pagination.html'
+    };
+  });
+
+  app.directive("ProgressBars", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/ProgressBars.html'
+    };
+  });
+
+  app.directive("ListGroup", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/ListGroup.html'
+    };
+  });
+
+  app.directive("ResponsiveEmbed", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/ResponsiveEmbed.html'
     };
   });
 

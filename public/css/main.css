@@ -35,116 +35,42 @@
       display: block; }
   .editor-body .container-fluid {
     padding: 0 315px; }
-    .editor-body .container-fluid .row {
-      padding: 20px;
-      background-color: #f2f2f2;
-      position: relative; }
-      .editor-body .container-fluid .row > div {
+    .editor-body .container-fluid .edit-show {
+      padding: 20px; }
+      .editor-body .container-fluid .edit-show .dropzone {
         border: 1px solid #9D9999;
-        background-color: #ffffff;
         padding: 20px;
         border-radius: 10px; }
-        .editor-body .container-fluid .row > div .inside {
-          border: 1px solid #f2f2f2;
-          padding: 10px;
-          border-radius: 5px;
+        .editor-body .container-fluid .edit-show .dropzone ul[dnd-list], .editor-body .container-fluid .edit-show .dropzone ul[dnd-list] > li {
           position: relative; }
-      .editor-body .container-fluid .row .remove {
-        position: absolute;
-        right: 0px;
-        top: 0px; }
+        .editor-body .container-fluid .edit-show .dropzone ul[dnd-list] {
+          min-height: 22px;
+          margin: 0px;
+          padding-left: 0px; }
+        .editor-body .container-fluid .edit-show .dropzone li {
+          display: block;
+          padding: 0px;
+          min-height: 22px; }
+        .editor-body .container-fluid .edit-show .dropzone .dndDragging {
+          opacity: 0.7; }
+        .editor-body .container-fluid .edit-show .dropzone .dndDraggingSource {
+          display: none; }
+        .editor-body .container-fluid .edit-show .dropzone .dndPlaceholder {
+          background-color: #ddd;
+          min-height: 22px;
+          display: block;
+          position: relative; }
+        .editor-body .container-fluid .edit-show .dropzone .selected .item {
+          color: #3c763d;
+          background-color: #dff0d8;
+          border: 1px solid red; }
+        .editor-body .container-fluid .edit-show .dropzone .item {
+          padding: 10px 15px;
+          border: 1px solid #f2f2f2; }
   .editor-body .aside-right {
     right: 0px;
     z-index: 9999; }
     .editor-body .aside-right .input-group {
       margin: 6px 0; }
-  .editor-body .container-fluid.grown-add, .editor-body .container-fluid.grown-remove {
-    transition: 1s linear all;
-    -webkit-transition: 1s linear all; }
-  .editor-body .grown {
-    padding: 0 15px; }
-  .editor-body .container-fluid.grown-add {
-    padding: 0 315px; }
-  .editor-body .container-fluid.grown-add.grown-add-active {
-    padding: 0 15px; }
-  .editor-body .container-fluid.grown-remove-active {
-    padding: 0 315px; }
-  .editor-body .aside-left.ng-hide-add, .editor-body .aside-left.ng-hide-remove, .editor-body .aside-right.ng-hide-add, .editor-body .aside-right.ng-hide-remove {
-    transition: 1s linear all;
-    -webkit-transition: 1s linear all;
-    display: block !important; }
-  .editor-body .aside-left.ng-hide-add, .editor-body .aside-right.ng-hide-add {
-    opacity: 1; }
-  .editor-body .aside-left.ng-hide-add.ng-hide-add-active, .editor-body .aside-right.ng-hide-add.ng-hide-add-active {
-    opacity: 0; }
-  .editor-body .aside-left.ng-hide-remove, .editor-body .aside-right.ng-hide-remove {
-    opacity: 0; }
-  .editor-body .aside-left.ng-hide-remove.ng-hide-remove-active, .editor-body .aside-right.ng-hide-remove.ng-hide-remove-active {
-    opacity: 1; }
-
-/***************************** Required styles *****************************/
-/**
- * For the correct positioning of the placeholder element, the dnd-list and
- * it's children must have position: relative
- */
-.container-fluid .dropzone ul[dnd-list], .container-fluid .dropzone ul[dnd-list] > li {
-  position: relative; }
-
-/***************************** Dropzone Styling *****************************/
-/**
- * The dnd-list should always have a min-height,
- * otherwise you can't drop to it once it's empty
- */
-.container-fluid .dropzone ul[dnd-list] {
-  min-height: 22px;
-  margin: 0px;
-  padding-left: 0px; }
-
-/**
- * The dnd-lists's child elements currently MUST have
- * position: relative. Otherwise we can not determine
- * whether the mouse pointer is in the upper or lower
- * half of the element we are dragging over. In other
- * browsers we can use event.offsetY for this.
- */
-.container-fluid .dropzone li {
-  display: block;
-  padding: 0px;
-  min-height: 22px; }
-
-/**
- * Reduce opacity of elements during the drag operation. This allows the user
- * to see where he is dropping his element, even if the element is huge. The
- * .dndDragging class is automatically set during the drag operation.
- */
-.container-fluid .dropzone .dndDragging {
-  opacity: 0.7; }
-
-/**
- * The dndDraggingSource class will be applied to the source element of a drag
- * operation. It makes sense to hide it to give the user the feeling that he's
- * actually moving it. Note that the source element has also .dndDragging class.
- */
-.container-fluid .dropzone .dndDraggingSource {
-  display: none; }
-
-/**
- * An element with .dndPlaceholder class will be added as child of the dnd-list
- * while the user is dragging over it.
- */
-.container-fluid .dropzone .dndPlaceholder {
-  background-color: #ddd;
-  min-height: 22px;
-  display: block;
-  position: relative; }
-
-/***************************** Element Selection *****************************/
-.container-fluid .dropzone .selected .item {
-  color: #3c763d;
-  background-color: #dff0d8; }
-
-/***************************** Element type specific styles *****************************/
-.container-fluid .dropzone .item {
-  padding: 10px 15px; }
 
 /*# sourceMappingURL=main.css.map */
