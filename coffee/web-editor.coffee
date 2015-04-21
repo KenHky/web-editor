@@ -1,4 +1,4 @@
-app= angular.module 'myApp', ['ui.bootstrap','ngAnimate','ngDraggable','ngSanitize','dndLists']
+app= angular.module 'myApp', ['ui.bootstrap','ngAnimate','ngSanitize','dndLists']
 app.controller "MainController",($scope)->
     $scope.editShow= true
     $scope.edit= ()->
@@ -11,7 +11,6 @@ app.controller "MainController",($scope)->
         $scope.editShow= true
         $scope.grow= false
 
-    $scope.cssItems = ['title']
     $scope.cssSetting = ['padding']
 
     $scope.addItem = ()->

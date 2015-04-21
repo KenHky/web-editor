@@ -1,7 +1,7 @@
 (function() {
   var app;
 
-  app = angular.module('myApp', ['ui.bootstrap', 'ngAnimate', 'ngDraggable', 'ngSanitize', 'dndLists']);
+  app = angular.module('myApp', ['ui.bootstrap', 'ngAnimate', 'ngSanitize', 'dndLists']);
 
   app.controller("MainController", function($scope) {
     var inArray;
@@ -18,7 +18,6 @@
       $scope.editShow = true;
       return $scope.grow = false;
     };
-    $scope.cssItems = ['title'];
     $scope.cssSetting = ['padding'];
     $scope.addItem = function() {
       var newItemNo;

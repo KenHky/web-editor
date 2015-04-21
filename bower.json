@@ -16,7 +16,6 @@
     "angular": "~1.2.28",
     "angular-bootstrap": "~0.12.1",
     "angular-animate": "~1.2.28",
-    "ngDraggable": "~0.0.31",
     "angular-sanitize": "~1.2.28"
   }
 }
