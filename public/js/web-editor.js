@@ -59,82 +59,116 @@
       girds: [
         {
           type: "gird12",
-          id: 1,
+          id: 101,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
           columns: [[]]
         }, {
           type: "gird66",
-          id: 2,
+          id: 102,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
           columns: [[], []]
         }, {
           type: "gird84",
-          id: 3,
+          id: 103,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
           columns: [[], []]
         }, {
           type: "gird444",
-          id: 4,
+          id: 104,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
           columns: [[], [], []]
         }, {
           type: "gird264",
-          id: 5,
+          id: 105,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
           columns: [[], [], []]
         }
       ],
       css: [
         {
           type: "title",
-          id: 1
+          id: 201,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "paragraph",
-          id: 2
+          id: 202,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "OrderedList",
-          id: 3
+          id: 203,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "table",
-          id: 4
+          id: 204,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "form",
-          id: 5
+          id: 205,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "button",
-          id: 5
+          id: 206,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "image",
-          id: 5
+          id: 207,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }
       ],
       components: [
         {
           type: "ButtonGroups",
-          id: 1
+          id: 301,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "ButtonDropdowns",
-          id: 2
+          id: 302,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "Navs",
-          id: 3
+          id: 303,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "Breadcrumbs",
-          id: 4
+          id: 304,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "Pagination",
-          id: 5
+          id: 305,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "ProgressBars",
-          id: 6
+          id: 306,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "ListGroup",
-          id: 7
+          id: 307,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }, {
           type: "ResponsiveEmbed",
-          id: 8
+          id: 308,
+          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
         }
       ],
       dropzones: [[]]
     };
-    return $scope.$watch('models.dropzones', function(model) {
+    $scope.$watch('models.dropzones', function(model) {
       return $scope.modelAsJson = angular.toJson(model, true);
     }, true);
+    $scope.cssSettings = [];
+    $scope.newcss = {};
+    return $scope.$watch('cssSettings', function() {
+      var i, index, len, ref, results, type;
+      if ($scope.models.selected) {
+        ref = $scope.models.selected.csstype;
+        results = [];
+        for (index = i = 0, len = ref.length; i < len; index = ++i) {
+          type = ref[index];
+          results.push($scope.newcss[type] = $scope.cssSettings[index]);
+        }
+        return results;
+      }
+    });
   });
 
   app.directive("gird12", function() {

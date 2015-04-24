@@ -1,4 +1,4 @@
 <ul dnd-list="list">
-    <li ng-repeat="item in list" dnd-draggable="item" dnd-effect-allowed="move" dnd-moved="list.splice($index, 1)" dnd-selected="models.selected = item" ng-include src="'directives/' + item.type + '.html'"> 
+    <li ng-repeat="item in list" dnd-draggable="item" dnd-effect-allowed="move" dnd-moved="list.splice($index, 1)" dnd-selected="models.selected = item" ng-include src="'directives/' + item.type + '.html'"ng-class="{selected: models.selected === item}" ng-style="newcss"> 
     </li>
 </ul>

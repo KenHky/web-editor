@@ -61,6 +61,10 @@
                     padding: 0px;
                     min-height: 22px;
                 }
+                .selected{
+                    border: 1px solid red;
+                    border-radius: 10px;
+                }
                 .dndDragging {
                     opacity: 0.7;
                 }
@@ -91,5 +95,37 @@
         .input-group{
             margin: 6px 0;
         }
+    }
+    .container-fluid.grown-add,.container-fluid.grown-remove{
+        transition: 1s linear all;
+        -webkit-transition: 1s linear all;
+    }
+    .grown{padding:0 15px;}
+    .container-fluid.grown-add{
+        padding:0 315px;
+    }
+    .container-fluid.grown-add.grown-add-active{
+        padding:0 15px;
+    }
+    .container-fluid.grown-remove{}
+    .container-fluid.grown-remove-active{      
+        padding:0 315px;
+    }
+    .aside-left.ng-hide-add,.aside-left.ng-hide-remove,.aside-right.ng-hide-add,.aside-right.ng-hide-remove{
+        transition:1s linear all;
+        -webkit-transition:1s linear all;
+        display:block!important;
+    }
+    .aside-left.ng-hide-add,.aside-right.ng-hide-add{
+        opacity: 1;
+    }
+    .aside-left.ng-hide-add.ng-hide-add-active,.aside-right.ng-hide-add.ng-hide-add-active{
+        opacity: 0;
+    }
+    .aside-left.ng-hide-remove,.aside-right.ng-hide-remove{
+        opacity: 0;
+    }
+    .aside-left.ng-hide-remove.ng-hide-remove-active,.aside-right.ng-hide-remove.ng-hide-remove-active{
+        opacity: 1;
     }
 }

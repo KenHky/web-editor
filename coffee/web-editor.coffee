@@ -47,71 +47,91 @@ app.controller "MainController",($scope)->
         selected: null,
         girds: [
             type: "gird12"
-            id: 1
+            id: 101
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
             columns: [[]]
         ,
             type: "gird66"
-            id: 2
+            id: 102
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
             columns: [[], []]
         ,
             type: "gird84"
-            id: 3
+            id: 103
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
             columns: [[], []]
         ,
             type: "gird444"
-            id: 4
+            id: 104
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
             columns: [[], [], []]
         ,
             type: "gird264"
-            id: 5
+            id: 105
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
             columns: [[], [], []]
         ]
         css: [
             type: "title"
-            id: 1
+            id: 201
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "paragraph"
-            id: 2
+            id: 202
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "OrderedList"
-            id: 3
+            id: 203
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "table"
-            id: 4
+            id: 204
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "form"
-            id: 5
+            id: 205
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "button"
-            id: 5
+            id: 206
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "image"
-            id: 5
+            id: 207
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ]
-        components:[
+        components: [
             type: "ButtonGroups"
-            id: 1
+            id: 301
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "ButtonDropdowns"
-            id: 2
+            id: 302
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "Navs"
-            id: 3
+            id: 303
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "Breadcrumbs"
-            id: 4
+            id: 304
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "Pagination"
-            id: 5
+            id: 305
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "ProgressBars"
-            id: 6
+            id: 306
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "ListGroup"
-            id: 7
+            id: 307
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ,
             type: "ResponsiveEmbed"
-            id: 8
+            id: 308
+            csstype: ["padding-left","padding-right","padding-top","padding-button"]
         ]
         dropzones:[
             [
@@ -123,6 +143,12 @@ app.controller "MainController",($scope)->
         $scope.modelAsJson = angular.toJson model, true
     , true
 
+    $scope.cssSettings= []  
+    $scope.newcss= {}
+    $scope.$watch 'cssSettings', ()->
+        if $scope.models.selected
+            for type,index in $scope.models.selected.csstype
+                $scope.newcss[type]= $scope.cssSettings[index]
 
 app.directive "gird12",()->
     replace: false,

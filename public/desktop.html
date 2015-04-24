@@ -69,7 +69,7 @@
                     <accordion-heading>
                         Bace module <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.threeOpen, 'glyphicon-chevron-right': !status.threeOpen}"></i>
                     </accordion-heading>
-                    This is just some content to illustrate fancy headings.
+                    <div ng-repeat="item in models.components" class="accordion-inside" dnd-draggable="item" dnd-effect-allowed="copy" dnd-copied="item.id = item.id + 1"><span class="left">{{item.type}}</span><span class="glyphicon glyphicon-fullscreen right" aria-hidden="true"></span></div>
                 </accordion-group>
                 <accordion-group is-open="status.fourOpen">
                     <accordion-heading>
@@ -86,28 +86,17 @@
                         CSS settings <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.fiveOpen, 'glyphicon-chevron-right': !status.fiveOpen}"></i>
                     </accordion-heading>
                     <div>
-                        <div class="input-group">
-                            <div class="input-group-btn" dropdown is-open="status.paddingopen">
-                                <button type="button" class="btn btn-default dropdown-toggle"  dropdown-toggle>padding <span class="caret"></span></button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">padding-left</a></li>
-                                    <li><a href="#">padding-right</a></li>
-                                    <li><a href="#">padding-top</a></li>
-                                    <li><a href="#">padding-bottom</a></li>
-                                </ul>
-                            </div>
-                            <input type="text" class="form-control" aria-label="...">
-                        </div>
-                        <div class="input-group">
-                            <span class="input-group-addon">width</span>
-                            <input type="text" class="form-control" placeholder="width" aria-describedby="basic-addon1">
+                        <!--注意，绑定错误-->
+                        <div class="input-group" ng-repeat="type in models.selected.csstype">
+                            <span class="input-group-addon">{{type}}</span>
+                            <input type="text" class="form-control" placeholder="padding" aria-describedby="basic-addon1" ng-model="cssSettings[$index]">
                         </div>
                     </div>
                 </accordion-group>
             </accordion>
         </aside> 
         <div class="container-fluid" ng-class="{grown:grow}">
-            <div class="row" ng-class="{'edit-show': 1+1==2}">
+            <div class="row" ng-class="{'edit-show': editShow}">
                 <div class="col-md-12 dropzone" ng-repeat="list in models.dropzones">
                     <div ng-include src="'directives/list.html'"></div>
                 </div>
