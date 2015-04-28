@@ -7,9 +7,6 @@ app.controller "MainController",($scope)->
     $scope.Preview= ()->
         $scope.editShow= false
         $scope.grow= true 
-    $scope.Developer= ()->
-        $scope.editShow= true
-        $scope.grow= false
 
     $scope.cssSetting = ['padding']
 
@@ -48,90 +45,190 @@ app.controller "MainController",($scope)->
         girds: [
             type: "gird12"
             id: 101
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
             columns: [[]]
         ,
             type: "gird66"
             id: 102
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
             columns: [[], []]
         ,
             type: "gird84"
             id: 103
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
             columns: [[], []]
         ,
             type: "gird444"
             id: 104
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
             columns: [[], [], []]
         ,
             type: "gird264"
             id: 105
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
             columns: [[], [], []]
         ]
         css: [
             type: "title"
             id: 201
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "paragraph"
             id: 202
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "OrderedList"
             id: 203
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "table"
             id: 204
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "form"
             id: 205
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
-            type: "button"
+            type: "bottom"
             id: 206
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "image"
             id: 207
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ]
         components: [
-            type: "ButtonGroups"
+            type: "bottomGroups"
             id: 301
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
-            type: "ButtonDropdowns"
+            type: "bottomDropdowns"
             id: 302
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "Navs"
             id: 303
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "Breadcrumbs"
             id: 304
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "Pagination"
             id: 305
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "ProgressBars"
             id: 306
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "ListGroup"
             id: 307
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ,
             type: "ResponsiveEmbed"
             id: 308
-            csstype: ["padding-left","padding-right","padding-top","padding-button"]
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
         ]
         dropzones:[
             [
@@ -142,13 +239,7 @@ app.controller "MainController",($scope)->
     $scope.$watch 'models.dropzones', (model)->
         $scope.modelAsJson = angular.toJson model, true
     , true
-
-    $scope.cssSettings= []  
-    $scope.newcss= {}
-    $scope.$watch 'cssSettings', ()->
-        if $scope.models.selected
-            for type,index in $scope.models.selected.csstype
-                $scope.newcss[type]= $scope.cssSettings[index]
+    
 
 app.directive "gird12",()->
     replace: false,
@@ -227,12 +318,12 @@ app.directive "form",()->
     scope: false 
     templateUrl: 'directives/form.html'
 
-app.directive "button",()->
+app.directive "bottom",()->
     replace: false,
     transclude: false,
     restrict: 'A',
     scope: false 
-    templateUrl: 'directives/button.html'
+    templateUrl: 'directives/bottom.html'
 
 app.directive "image",()->
     replace: false,
@@ -241,19 +332,19 @@ app.directive "image",()->
     scope: false 
     templateUrl: 'directives/image.html'
 
-app.directive "ButtonGroups",()->
+app.directive "bottomGroups",()->
     replace: false,
     transclude: false,
     restrict: 'A',
     scope: false 
-    templateUrl: 'directives/ButtonGroups.html'
+    templateUrl: 'directives/bottomGroups.html'
 
-app.directive "ButtonDropdowns",()->
+app.directive "bottomDropdowns",()->
     replace: false,
     transclude: false,
     restrict: 'A',
     scope: false 
-    templateUrl: 'directives/ButtonDropdowns.html'
+    templateUrl: 'directives/bottomDropdowns.html'
 
 app.directive "Navs",()->
     replace: false,

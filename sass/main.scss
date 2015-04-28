@@ -7,7 +7,7 @@
 .navbar-btns{
     margin-top:6px;
     position:relative;
-    left:38%;
+    left:42%;
 }
 .editor-body{
     width: 100%;
@@ -128,4 +128,9 @@
     .aside-left.ng-hide-remove.ng-hide-remove-active,.aside-right.ng-hide-remove.ng-hide-remove-active{
         opacity: 1;
     }
+}
+.trashcan{
+    position:fixed;
+    bottom:20px;
+    right:300px;
 }

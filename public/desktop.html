@@ -31,7 +31,6 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="btn-group btn-group-xs navbar-btns" role="group" aria-label="...">
                     <button type="button" class="btn btn-default navbar-btn" ng-click="edit()">Edit</button>
-                    <button type="button" class="btn btn-default navbar-btn" ng-click="Developer()">Developer</button>
                     <button type="button" class="btn btn-default navbar-btn" ng-click="Preview()">Preview</button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
@@ -86,10 +85,9 @@
                         CSS settings <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.fiveOpen, 'glyphicon-chevron-right': !status.fiveOpen}"></i>
                     </accordion-heading>
                     <div>
-                        <!--注意，绑定错误-->
-                        <div class="input-group" ng-repeat="type in models.selected.csstype">
+                        <div class="input-group" ng-repeat="(type, content) in models.selected.csstype">
                             <span class="input-group-addon">{{type}}</span>
-                            <input type="text" class="form-control" placeholder="padding" aria-describedby="basic-addon1" ng-model="cssSettings[$index]">
+                            <input type="text" class="form-control" placeholder="padding" aria-describedby="basic-addon1" ng-model="models.selected.csstype[type]">
                         </div>
                     </div>
                 </accordion-group>
@@ -101,7 +99,12 @@
                     <div ng-include src="'directives/list.html'"></div>
                 </div>
             </div>
-        </div>     
+        </div> 
+        <div class="trashcan">
+            <div dnd-list="[]">
+                <div><img src="pic/trash.jpg" width="150px" height="200px"></div>
+            </div>
+        </div>   
     </div>
 </body>
 </html>

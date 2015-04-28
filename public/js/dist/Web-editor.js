@@ -1,4 +1,4 @@
-/*! Web-editor - v0.0.1 - 2015-04-24
+/*! Web-editor - v0.0.1 - 2015-04-28
 * Copyright (c) 2015 Ken; Licensed  */
 (function() {
   var app;
@@ -15,10 +15,6 @@
     $scope.Preview = function() {
       $scope.editShow = false;
       return $scope.grow = true;
-    };
-    $scope.Developer = function() {
-      $scope.editShow = true;
-      return $scope.grow = false;
     };
     $scope.cssSetting = ['padding'];
     $scope.addItem = function() {
@@ -62,27 +58,52 @@
         {
           type: "gird12",
           id: 101,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          },
           columns: [[]]
         }, {
           type: "gird66",
           id: 102,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          },
           columns: [[], []]
         }, {
           type: "gird84",
           id: 103,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          },
           columns: [[], []]
         }, {
           type: "gird444",
           id: 104,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          },
           columns: [[], [], []]
         }, {
           type: "gird264",
           id: 105,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"],
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          },
           columns: [[], [], []]
         }
       ],
@@ -90,87 +111,148 @@
         {
           type: "title",
           id: 201,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "paragraph",
           id: 202,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "OrderedList",
           id: 203,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "table",
           id: 204,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "form",
           id: 205,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
-          type: "button",
+          type: "bottom",
           id: 206,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "image",
           id: 207,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }
       ],
       components: [
         {
-          type: "ButtonGroups",
+          type: "bottomGroups",
           id: 301,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
-          type: "ButtonDropdowns",
+          type: "bottomDropdowns",
           id: 302,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "Navs",
           id: 303,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "Breadcrumbs",
           id: 304,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "Pagination",
           id: 305,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "ProgressBars",
           id: 306,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "ListGroup",
           id: 307,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }, {
           type: "ResponsiveEmbed",
           id: 308,
-          csstype: ["padding-left", "padding-right", "padding-top", "padding-button"]
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
         }
       ],
       dropzones: [[]]
     };
-    $scope.$watch('models.dropzones', function(model) {
+    return $scope.$watch('models.dropzones', function(model) {
       return $scope.modelAsJson = angular.toJson(model, true);
     }, true);
-    $scope.cssSettings = [];
-    $scope.newcss = {};
-    return $scope.$watch('cssSettings', function() {
-      var i, index, len, ref, results, type;
-      if ($scope.models.selected) {
-        ref = $scope.models.selected.csstype;
-        results = [];
-        for (index = i = 0, len = ref.length; i < len; index = ++i) {
-          type = ref[index];
-          results.push($scope.newcss[type] = $scope.cssSettings[index]);
-        }
-        return results;
-      }
-    });
   });
 
   app.directive("gird12", function() {
@@ -283,13 +365,13 @@
     };
   });
 
-  app.directive("button", function() {
+  app.directive("bottom", function() {
     return {
       replace: false,
       transclude: false,
       restrict: 'A',
       scope: false,
-      templateUrl: 'directives/button.html'
+      templateUrl: 'directives/bottom.html'
     };
   });
 
@@ -303,23 +385,23 @@
     };
   });
 
-  app.directive("ButtonGroups", function() {
+  app.directive("bottomGroups", function() {
     return {
       replace: false,
       transclude: false,
       restrict: 'A',
       scope: false,
-      templateUrl: 'directives/ButtonGroups.html'
+      templateUrl: 'directives/bottomGroups.html'
     };
   });
 
-  app.directive("ButtonDropdowns", function() {
+  app.directive("bottomDropdowns", function() {
     return {
       replace: false,
       transclude: false,
       restrict: 'A',
       scope: false,
-      templateUrl: 'directives/ButtonDropdowns.html'
+      templateUrl: 'directives/bottomDropdowns.html'
     };
   });
 
