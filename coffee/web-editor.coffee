@@ -8,8 +8,6 @@ app.controller "MainController",($scope)->
         $scope.editShow= false
         $scope.grow= true 
 
-    $scope.cssSetting = ['padding']
-
     $scope.addItem = ()->
         newItemNo = $scope.items.length + 1
         $scope.items.push('Item ' + newItemNo)
@@ -44,7 +42,7 @@ app.controller "MainController",($scope)->
         selected: null,
         girds: [
             type: "gird12"
-            id: 101
+            id: 110
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -54,7 +52,7 @@ app.controller "MainController",($scope)->
             columns: [[]]
         ,
             type: "gird66"
-            id: 102
+            id: 120
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -64,7 +62,7 @@ app.controller "MainController",($scope)->
             columns: [[], []]
         ,
             type: "gird84"
-            id: 103
+            id: 130
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -74,7 +72,7 @@ app.controller "MainController",($scope)->
             columns: [[], []]
         ,
             type: "gird444"
-            id: 104
+            id: 140
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -84,7 +82,7 @@ app.controller "MainController",($scope)->
             columns: [[], [], []]
         ,
             type: "gird264"
-            id: 105
+            id: 150
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -95,7 +93,7 @@ app.controller "MainController",($scope)->
         ]
         css: [
             type: "title"
-            id: 201
+            id: 210
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -104,7 +102,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "paragraph"
-            id: 202
+            id: 220
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -113,7 +111,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "OrderedList"
-            id: 203
+            id: 230
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -122,7 +120,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "table"
-            id: 204
+            id: 240
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -131,7 +129,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "form"
-            id: 205
+            id: 250
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -140,7 +138,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "bottom"
-            id: 206
+            id: 260
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -149,7 +147,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "image"
-            id: 207
+            id: 270
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -158,8 +156,17 @@ app.controller "MainController",($scope)->
             }
         ]
         components: [
+            type: "navBar"
+            id: 390
+            csstype: {
+                "padding-left":""
+                "padding-right":""
+                "padding-top":""
+                "padding-bottom":""
+            }
+        ,
             type: "bottomGroups"
-            id: 301
+            id: 310
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -168,7 +175,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "bottomDropdowns"
-            id: 302
+            id: 320
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -177,7 +184,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "Navs"
-            id: 303
+            id: 330
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -186,7 +193,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "Breadcrumbs"
-            id: 304
+            id: 340
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -195,7 +202,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "Pagination"
-            id: 305
+            id: 350
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -204,7 +211,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "ProgressBars"
-            id: 306
+            id: 360
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -213,7 +220,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "ListGroup"
-            id: 307
+            id: 370
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -222,7 +229,7 @@ app.controller "MainController",($scope)->
             }
         ,
             type: "ResponsiveEmbed"
-            id: 308
+            id: 380
             csstype: {
                 "padding-left":""
                 "padding-right":""
@@ -240,6 +247,23 @@ app.controller "MainController",($scope)->
         $scope.modelAsJson = angular.toJson model, true
     , true
     
+
+    $scope.downloadCon= ()->
+        zone= JSON.stringify $scope.models.dropzones
+        blob = new Blob [zone], {type: "text/plain;charset=utf-8"}
+        saveAs blob, "config.txt"
+
+    $scope.downloadHtm= ()->
+        innerhtml= document.getElementById("dropzone").innerHTML
+        htmls= "<!DOCTYPE html><html lang='zh-CN'><head><title>new page</title><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css'><style type='text/css'>li{list-style-type:none;}*{padding: 0px;margin: 0px;}</style></head><body>#{innerhtml}</body></html>"
+        blob = new Blob [htmls], {type: "text/html;charset=utf-8"}
+        saveAs blob, "new-page.html"
+
+    $scope.clear= ()->
+        $scope.models.dropzones= [
+            [
+            ]
+        ]
 
 app.directive "gird12",()->
     replace: false,
@@ -331,6 +355,13 @@ app.directive "image",()->
     restrict: 'A',
     scope: false 
     templateUrl: 'directives/image.html'
+
+app.directive "navBar",()->
+    replace: false,
+    transclude: false,
+    restrict: 'A',
+    scope: false 
+    templateUrl: 'directives/navBar.html'
 
 app.directive "bottomGroups",()->
     replace: false,

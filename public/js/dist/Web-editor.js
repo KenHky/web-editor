@@ -1,4 +1,4 @@
-/*! Web-editor - v0.0.1 - 2015-04-28
+/*! Web-editor - v0.0.1 - 2015-04-29
 * Copyright (c) 2015 Ken; Licensed  */
 (function() {
   var app;
@@ -16,7 +16,6 @@
       $scope.editShow = false;
       return $scope.grow = true;
     };
-    $scope.cssSetting = ['padding'];
     $scope.addItem = function() {
       var newItemNo;
       newItemNo = $scope.items.length + 1;
@@ -57,7 +56,7 @@
       girds: [
         {
           type: "gird12",
-          id: 101,
+          id: 110,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -67,7 +66,7 @@
           columns: [[]]
         }, {
           type: "gird66",
-          id: 102,
+          id: 120,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -77,7 +76,7 @@
           columns: [[], []]
         }, {
           type: "gird84",
-          id: 103,
+          id: 130,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -87,7 +86,7 @@
           columns: [[], []]
         }, {
           type: "gird444",
-          id: 104,
+          id: 140,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -97,7 +96,7 @@
           columns: [[], [], []]
         }, {
           type: "gird264",
-          id: 105,
+          id: 150,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -110,7 +109,7 @@
       css: [
         {
           type: "title",
-          id: 201,
+          id: 210,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -119,7 +118,7 @@
           }
         }, {
           type: "paragraph",
-          id: 202,
+          id: 220,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -128,7 +127,7 @@
           }
         }, {
           type: "OrderedList",
-          id: 203,
+          id: 230,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -137,7 +136,7 @@
           }
         }, {
           type: "table",
-          id: 204,
+          id: 240,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -146,7 +145,7 @@
           }
         }, {
           type: "form",
-          id: 205,
+          id: 250,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -155,7 +154,7 @@
           }
         }, {
           type: "bottom",
-          id: 206,
+          id: 260,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -164,7 +163,7 @@
           }
         }, {
           type: "image",
-          id: 207,
+          id: 270,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -175,8 +174,17 @@
       ],
       components: [
         {
+          type: "navBar",
+          id: 390,
+          csstype: {
+            "padding-left": "",
+            "padding-right": "",
+            "padding-top": "",
+            "padding-bottom": ""
+          }
+        }, {
           type: "bottomGroups",
-          id: 301,
+          id: 310,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -185,7 +193,7 @@
           }
         }, {
           type: "bottomDropdowns",
-          id: 302,
+          id: 320,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -194,7 +202,7 @@
           }
         }, {
           type: "Navs",
-          id: 303,
+          id: 330,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -203,7 +211,7 @@
           }
         }, {
           type: "Breadcrumbs",
-          id: 304,
+          id: 340,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -212,7 +220,7 @@
           }
         }, {
           type: "Pagination",
-          id: 305,
+          id: 350,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -221,7 +229,7 @@
           }
         }, {
           type: "ProgressBars",
-          id: 306,
+          id: 360,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -230,7 +238,7 @@
           }
         }, {
           type: "ListGroup",
-          id: 307,
+          id: 370,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -239,7 +247,7 @@
           }
         }, {
           type: "ResponsiveEmbed",
-          id: 308,
+          id: 380,
           csstype: {
             "padding-left": "",
             "padding-right": "",
@@ -250,9 +258,29 @@
       ],
       dropzones: [[]]
     };
-    return $scope.$watch('models.dropzones', function(model) {
+    $scope.$watch('models.dropzones', function(model) {
       return $scope.modelAsJson = angular.toJson(model, true);
     }, true);
+    $scope.downloadCon = function() {
+      var blob, zone;
+      zone = JSON.stringify($scope.models.dropzones);
+      blob = new Blob([zone], {
+        type: "text/plain;charset=utf-8"
+      });
+      return saveAs(blob, "config.txt");
+    };
+    $scope.downloadHtm = function() {
+      var blob, htmls, innerhtml;
+      innerhtml = document.getElementById("dropzone").innerHTML;
+      htmls = "<!DOCTYPE html><html lang='zh-CN'><head><title>new page</title><meta charset='utf-8'><meta http-equiv='X-UA-Compatible' content='IE=edge'><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css'><style type='text/css'>li{list-style-type:none;}*{padding: 0px;margin: 0px;}</style></head><body>" + innerhtml + "</body></html>";
+      blob = new Blob([htmls], {
+        type: "text/html;charset=utf-8"
+      });
+      return saveAs(blob, "new-page.html");
+    };
+    return $scope.clear = function() {
+      return $scope.models.dropzones = [[]];
+    };
   });
 
   app.directive("gird12", function() {
@@ -382,6 +410,16 @@
       restrict: 'A',
       scope: false,
       templateUrl: 'directives/image.html'
+    };
+  });
+
+  app.directive("navBar", function() {
+    return {
+      replace: false,
+      transclude: false,
+      restrict: 'A',
+      scope: false,
+      templateUrl: 'directives/navBar.html'
     };
   });
 

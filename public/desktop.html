@@ -12,7 +12,12 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script type="text/javascript" src="js/lib/angular-sanitize/angular-sanitize.js"></script>
     <script type="text/javascript" src="js/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script type="text/javascript" src="js/lib/fileSaver/fileSaver.js"></script>
     <script type="text/javascript" src="js/dist/web-editor.js"></script>
+    <style type="text/css">
+        li{list-style-type:none;}
+        *{padding: 0px;margin: 0px;}
+    </style>
 </head>
 <body ng-controller="MainController">
     <nav class="navbar navbar-inverse" style="margin-bottom:0px;z-index:999;">
@@ -34,17 +39,9 @@
                     <button type="button" class="btn btn-default navbar-btn" ng-click="Preview()">Preview</button>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Share or save</a></li>
-                    <li><a href="#">Clear</a></li>
-                    <li class="dropdown" dropdown is-open="status.downloudOpen">
-                        <a href="#" class="dropdown-toggle" role="button"  dropdown-toggle>Download <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                        </ul>
-                    </li>
+                    <li ng-click="clear()"><a href="#">Clear</a></li>
+                    <li ng-click="downloadCon()"><a href="#">Download Configuration File</a></li>
+                    <li ng-click="downloadHtm()"><a href="#">Download Html</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -70,12 +67,6 @@
                     </accordion-heading>
                     <div ng-repeat="item in models.components" class="accordion-inside" dnd-draggable="item" dnd-effect-allowed="copy" dnd-copied="item.id = item.id + 1"><span class="left">{{item.type}}</span><span class="glyphicon glyphicon-fullscreen right" aria-hidden="true"></span></div>
                 </accordion-group>
-                <accordion-group is-open="status.fourOpen">
-                    <accordion-heading>
-                        Javascript <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.fourOpen, 'glyphicon-chevron-right': !status.fourOpen}"></i>
-                    </accordion-heading>
-                    This is just some content to illustrate fancy headings.
-                </accordion-group>
             </accordion>    
         </aside> 
         <aside class="aside-right" ng-show="editShow">
@@ -87,7 +78,7 @@
                     <div>
                         <div class="input-group" ng-repeat="(type, content) in models.selected.csstype">
                             <span class="input-group-addon">{{type}}</span>
-                            <input type="text" class="form-control" placeholder="padding" aria-describedby="basic-addon1" ng-model="models.selected.csstype[type]">
+                            <input type="text" class="form-control" aria-describedby="basic-addon1" ng-model="models.selected.csstype[type]">
                         </div>
                     </div>
                 </accordion-group>
@@ -95,12 +86,12 @@
         </aside> 
         <div class="container-fluid" ng-class="{grown:grow}">
             <div class="row" ng-class="{'edit-show': editShow}">
-                <div class="col-md-12 dropzone" ng-repeat="list in models.dropzones">
+                <div class="col-md-12 dropzone" ng-repeat="list in models.dropzones" id="dropzone">
                     <div ng-include src="'directives/list.html'"></div>
                 </div>
             </div>
         </div> 
-        <div class="trashcan">
+        <div class="trashcan" ng-if="editShow">
             <div dnd-list="[]">
                 <div><img src="pic/trash.jpg" width="150px" height="200px"></div>
             </div>
