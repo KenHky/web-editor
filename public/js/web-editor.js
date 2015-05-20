@@ -151,7 +151,7 @@
             "padding-bottom": ""
           }
         }, {
-          type: "bottom",
+          type: "button",
           id: 260,
           csstype: {
             "padding-left": "",
@@ -281,224 +281,161 @@
     };
   });
 
-  app.directive("gird12", function() {
-    return {
+
+  /*
+  app.directive "gird12",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/gird12.html'
-    };
-  });
-
-  app.directive("list", function() {
-    return {
-      replace: false,
-      restrict: 'A',
-      transclude: false,
-      scope: false,
+  
+  app.directive "list",()->
+      replace: false
+      restrict: 'A'
+      transclude: false
+      scope: false
       templateUrl: 'directives/list.html'
-    };
-  });
-
-  app.directive("gird264", function() {
-    return {
+  
+  app.directive "gird264",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/gird264.html'
-    };
-  });
-
-  app.directive("gird444", function() {
-    return {
+  
+  app.directive "gird444",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/gird444.html'
-    };
-  });
-
-  app.directive("gird66", function() {
-    return {
+  
+  app.directive "gird66",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/gird66.html'
-    };
-  });
-
-  app.directive("gird84", function() {
-    return {
+  
+  app.directive "gird84",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/gird84.html'
-    };
-  });
-
-  app.directive("title", function() {
-    return {
+  
+  app.directive "title",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/title.html'
-    };
-  });
-
-  app.directive("paragraph", function() {
-    return {
+  
+  app.directive "paragraph",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/paragraph.html'
-    };
-  });
-
-  app.directive("OrderedList", function() {
-    return {
+  
+  app.directive "OrderedList",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/OrderedList.html'
-    };
-  });
-
-  app.directive("table", function() {
-    return {
+  
+  app.directive "table",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/table.html'
-    };
-  });
-
-  app.directive("form", function() {
-    return {
+  
+  app.directive "form",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/form.html'
-    };
-  });
-
-  app.directive("bottom", function() {
-    return {
+  
+  app.directive "bottom",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/bottom.html'
-    };
-  });
-
-  app.directive("image", function() {
-    return {
+  
+  app.directive "image",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/image.html'
-    };
-  });
-
-  app.directive("navBar", function() {
-    return {
+  
+  app.directive "navBar",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/navBar.html'
-    };
-  });
-
-  app.directive("bottomGroups", function() {
-    return {
+  
+  app.directive "bottomGroups",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/bottomGroups.html'
-    };
-  });
-
-  app.directive("bottomDropdowns", function() {
-    return {
+  
+  app.directive "bottomDropdowns",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/bottomDropdowns.html'
-    };
-  });
-
-  app.directive("Navs", function() {
-    return {
+  
+  app.directive "Navs",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/Navs.html'
-    };
-  });
-
-  app.directive("Breadcrumbs", function() {
-    return {
+  
+  app.directive "Breadcrumbs",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/Breadcrumbs.html'
-    };
-  });
-
-  app.directive("Pagination", function() {
-    return {
+  
+  app.directive "Pagination",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/Pagination.html'
-    };
-  });
-
-  app.directive("ProgressBars", function() {
-    return {
+  
+  app.directive "ProgressBars",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/ProgressBars.html'
-    };
-  });
-
-  app.directive("ListGroup", function() {
-    return {
+  
+  app.directive "ListGroup",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/ListGroup.html'
-    };
-  });
-
-  app.directive("ResponsiveEmbed", function() {
-    return {
+  
+  app.directive "ResponsiveEmbed",()->
       replace: false,
       transclude: false,
       restrict: 'A',
-      scope: false,
+      scope: false 
       templateUrl: 'directives/ResponsiveEmbed.html'
-    };
-  });
+   */
 
 }).call(this);

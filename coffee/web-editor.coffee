@@ -137,7 +137,7 @@ app.controller "MainController",($scope)->
                 "padding-bottom":""
             }
         ,
-            type: "bottom"
+            type: "button"
             id: 260
             csstype: {
                 "padding-left":""
@@ -264,7 +264,7 @@ app.controller "MainController",($scope)->
             [
             ]
         ]
-
+###
 app.directive "gird12",()->
     replace: false,
     transclude: false,
@@ -418,4 +418,4 @@ app.directive "ResponsiveEmbed",()->
     restrict: 'A',
     scope: false 
     templateUrl: 'directives/ResponsiveEmbed.html'
-
+###
